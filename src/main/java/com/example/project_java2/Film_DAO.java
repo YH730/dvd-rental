@@ -43,7 +43,7 @@ public class Film_DAO implements FilmDAO {
                     her.setPrice(rs.getInt("Preis"));
                     her.setAvailability(rs.getInt("availability"));
                     her.setBorrowed(rs.getInt("borrowed"));
-                    her.setCast(rs.getString("lastName")); // Name of cast
+                    her.setCast(rs.getString("h.Name")); // Name of cast
 
                     list.add(her);
                 }
