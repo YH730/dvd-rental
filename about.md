@@ -15,4 +15,6 @@
 * Rental Info - customer Id
 
 
-
+# Einrichtung Jetbrains IntelliJ
+![Project structure > Module > Add](setup_mariadb_jdbc_driver1.png "Project structure > Module > Add")  
+![latest stablelatest stable, copy to project path, copy to project path](setup_mariadb_jdbc_driver2.png "latest stable, copy to project path")  
