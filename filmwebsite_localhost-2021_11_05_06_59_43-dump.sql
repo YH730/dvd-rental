@@ -187,6 +187,98 @@ INSERT INTO `filmgesellschaft` VALUES (1,'MGM'),(2,'20th Century Fox'),(3,'Touch
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+-- Exportiere Struktur von Tabelle filmwebsite.spielt
+DROP TABLE IF EXISTS `spielt`;
+CREATE TABLE IF NOT EXISTS `spielt` (
+  `Film_id` int(10) unsigned NOT NULL DEFAULT 0,
+  `Hauptdarsteller_id` int(10) unsigned NOT NULL DEFAULT 0,
+  `Rolle` varchar(40) COLLATE latin1_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Film_id`,`Hauptdarsteller_id`),
+  KEY `Film_id` (`Film_id`),
+  KEY `Hauptdarsteller_id` (`Hauptdarsteller_id`),
+  CONSTRAINT `spielt_ibfk_1` FOREIGN KEY (`Film_id`) REFERENCES `film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `spielt_ibfk_2` FOREIGN KEY (`Hauptdarsteller_id`) REFERENCES `hauptdarsteller` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- Exportiere Daten aus Tabelle filmwebsite.spielt: ~74 rows (ungefähr)
+/*!40000 ALTER TABLE `spielt` DISABLE KEYS */;
+INSERT INTO `spielt` (`Film_id`, `Hauptdarsteller_id`, `Rolle`) VALUES
+	(1, 7, 'Wanda Gershwitz'),
+	(1, 45, 'Archie Leach'),
+	(1, 46, 'Otto'),
+	(2, 7, 'Helen Tasker'),
+	(3, 1, 'David Dunn'),
+	(3, 50, 'Elijah Price'),
+	(4, 1, 'James Cole'),
+	(4, 10, 'Jeffrey Goines'),
+	(4, 53, 'Kathryn Railly'),
+	(5, 1, 'John McClane'),
+	(6, 1, 'Major Korben Dallas'),
+	(6, 38, 'Jean-Baptiste Emanuel Zorg'),
+	(6, 39, 'Leeloo'),
+	(7, 2, 'Sam Gamgee'),
+	(7, 4, 'Galadriel'),
+	(7, 14, 'Gandalf'),
+	(7, 15, 'Saruman'),
+	(7, 51, 'Frodo Baggins'),
+	(7, 52, 'Legolas Greenleaf'),
+	(8, 2, 'Sam Gamgee'),
+	(8, 4, 'Galadriel'),
+	(8, 14, 'Gandalf der Graue'),
+	(8, 51, 'Frodo Baggins'),
+	(9, 3, 'Capt. Jack Aubrey'),
+	(10, 3, 'John Nash'),
+	(11, 3, 'Maximus'),
+	(11, 41, 'Commodus'),
+	(11, 42, 'Lucilla'),
+	(12, 4, 'Elizabeth I'),
+	(12, 49, 'Sir Francis Walsingham'),
+	(13, 4, 'Meredith Logue'),
+	(14, 5, 'Trinity'),
+	(14, 6, 'Morpheus'),
+	(15, 5, 'Caroline Clairmont'),
+	(16, 5, 'Cmdr. Kate Bowman'),
+	(17, 6, 'Othello'),
+	(18, 6, 'Captain Miller'),
+	(23, 12, 'Neytiri'),
+	(23, 47, 'Jake Sully'),
+	(23, 48, 'Grace'),
+	(25, 8, 'Cobb'),
+	(25, 43, 'Arthur'),
+	(25, 44, 'Ariadne'),
+	(26, 8, 'Calvin Candie'),
+	(26, 9, 'Dr. King Schultz'),
+	(26, 40, 'Django'),
+	(27, 9, 'Col. Hans Landa'),
+	(27, 10, 'Lt. Aldo Raine'),
+	(28, 11, 'Bruce Wayne'),
+	(29, 13, 'Bilbo'),
+	(29, 14, 'Gandalf'),
+	(29, 15, 'Saruman'),
+	(30, 16, 'Anna'),
+	(30, 17, 'Elsa'),
+	(31, 18, 'Katniss Everdeen'),
+	(31, 19, 'Gale Hawthorne'),
+	(31, 20, 'Marvel'),
+	(32, 21, 'Ryan Stone'),
+	(32, 22, 'Matt Kowalski'),
+	(33, 23, 'James Franco'),
+	(33, 24, 'Jonah Hill'),
+	(33, 25, 'Seth Rogen'),
+	(34, 26, 'Lorraine Warren'),
+	(34, 27, 'Ed Warren'),
+	(34, 28, 'Carolyn Perron'),
+	(35, 29, 'Mike'),
+	(35, 30, 'Sullivan'),
+	(35, 31, 'Randy'),
+	(36, 32, 'Luke'),
+	(36, 33, 'Jack'),
+	(36, 34, 'Romina'),
+	(37, 12, 'Uhura'),
+	(37, 35, 'Kirk'),
+	(37, 36, 'Spock');
+/*!40000 ALTER TABLE `spielt` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
