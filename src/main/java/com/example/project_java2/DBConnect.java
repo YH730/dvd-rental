@@ -9,16 +9,10 @@ public final class DBConnect {
 
     private static Connection conn = null;
 
-    public static Connection getConnection() throws ClassNotFoundException{
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
 
         if (conn == null) {
-            String driverName = "org.mariadb.jdbc.Driver";
-            Class.forName(driverName);
-            try {
-                conn = DriverManager.getConnection(HOST_NAME, USER_NAME, PW);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            conn = DriverManager.getConnection(HOST_NAME, USER_NAME, PW);
         }
         return conn;
     }
